@@ -2,13 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import MyTodo from '../components/MyTodo'
 
-const mapStateToProps = state => {
-  return {
-      todos:state.todos
-  }
-}
-
-let MyConnect = ({dispatch})=>(
+let MyConnect = ({dispatch,children})=>(
   <div onClick={e=>{
       dispatch({
         type:'ISME',
@@ -16,10 +10,10 @@ let MyConnect = ({dispatch})=>(
         text:'Awbeci'
       })
     }}>
-    this is MyConnect components 
+    {children}
   </div>
 )
 
-MyConnect = connect(mapStateToProps)(MyConnect)
+MyConnect = connect()(MyConnect)
 
 export default MyConnect
