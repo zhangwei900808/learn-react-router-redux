@@ -1,7 +1,9 @@
 const todos = (state = [], action) => {
+  console.log('todos state tree is:')
+  console.log(state);
   switch (action.type) {
     case 'ADD_TODO':
-      return [
+      let s = [
         ...state,
         {
           id: action.id,
@@ -9,6 +11,7 @@ const todos = (state = [], action) => {
           completed: false
         }
       ]
+      return s;
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.id === action.id) 
